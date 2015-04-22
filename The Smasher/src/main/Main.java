@@ -1,10 +1,11 @@
 package main;
 
 import java.awt.Color;
+import java.awt.Image;
 
-import es.techtalents.techlib.gui.MainWindow;
-import es.techtalents.techlib.gui.window.Window;
-import es.techtalents.techlib.image.ImageLoader;
+import es.techtalents.ttgdl.gui.MainWindow;
+import es.techtalents.ttgdl.gui.window.Window;
+import es.techtalents.ttgdl.image.ImageLoader;
 
 public class Main {
 	
@@ -14,17 +15,19 @@ public class Main {
 		Window ventanita = new Window();
 		ventanita.setHeight(MainWindow.HEIGHT);
 		ventanita.setWidth(MainWindow.WIDTH);
-		ventanita.setBgColor(Color.BLACK);
+		Image img=ImageLoader.loadImage("Images/Mural-de-ladrillo-blanco.jpg").getScaledInstance(MainWindow.WIDTH, MainWindow.HEIGHT, Image.SCALE_SMOOTH);
+		ventanita.setBackgroundImage(img);
 		ventanita.setVisible(true);
 		ventanita.setEnabled(true);
 		Thread.sleep(200);
 		w.addWindow(ventanita);
 		
 		Raqueta r = new Raqueta();
-		r.setImage(ImageLoader.loadImage("Images/raqueta_roja.png"));
 		r.setVisible(true);
-		r.setPosition(MainWindow.WIDTH/2- r.getWidth()/2, MainWindow.HEIGHT-100);
 		ventanita.addSprite(r);
+		Pelota p = new Pelota(r);
+		ventanita.addSprite(p);
+		p.setVisible(true);
 	}
 	
 }
