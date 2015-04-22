@@ -8,10 +8,10 @@ import es.techtalents.ttgdl.gui.window.Window;
 import es.techtalents.ttgdl.image.ImageLoader;
 
 public class Main {
-	
+
 	public static void main(String[] args) throws InterruptedException{
 		MainWindow w = new MainWindow();
-		
+
 		Window ventanita = new Window();
 		ventanita.setHeight(MainWindow.HEIGHT);
 		ventanita.setWidth(MainWindow.WIDTH);
@@ -21,13 +21,15 @@ public class Main {
 		ventanita.setEnabled(true);
 		Thread.sleep(200);
 		w.addWindow(ventanita);
-		
+
 		Raqueta r = new Raqueta();
 		r.setVisible(true);
 		ventanita.addSprite(r);
-		Pelota p = new Pelota(r);
-		ventanita.addSprite(p);
-		p.setVisible(true);
+			Pelota p = new Pelota(r);
+			ventanita.addSprite(p);
+			p.setVisible(true);
+			
+
 	}
-	
+
 }
