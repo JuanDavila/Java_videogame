@@ -36,12 +36,15 @@ public class Pelota extends Sprite {
 		
 		if (r.checkCollision(this)){
 			speed.y = -1;
-			
+			float ran = (float) (Math.random()*10-5);
+			speed.rotate(ran);
 		}
 		for(Bloque b : listaBloques){
 			if (b.checkCollision(this) && !b.isDead()){
 				speed.y = +1;
 				b.onColision(this);
+				float ran = (float) (Math.random()*10-5);
+				speed.rotate(ran);
 			}
 		}
 		
