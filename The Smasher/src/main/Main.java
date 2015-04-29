@@ -24,11 +24,16 @@ public class Main {
 
 		Raqueta r = new Raqueta();
 		r.setVisible(true);
+
+		Bloque b = new Bloque();
+		b.setVisible(true);
+
 		ventanita.addSprite(r);
-			Pelota p = new Pelota(r);
-			ventanita.addSprite(p);
-			p.setVisible(true);
-			
+		Pelota p = new Pelota(r,b);
+		ventanita.addSprite(p);
+		ventanita.addSprite(b);
+		p.setVisible(true);
+
 
 	}
 
