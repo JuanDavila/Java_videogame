@@ -1,6 +1,7 @@
 package main;
 
 import java.awt.Image;
+import java.util.List;
 
 import es.techtalents.ttgdl.geom.Point2f;
 import es.techtalents.ttgdl.geom.Vector2f;
@@ -11,15 +12,15 @@ import es.techtalents.ttgdl.sprite.Sprite;
 public class Pelota extends Sprite {
 	private Vector2f speed = new Vector2f (1,-1);
 	private Raqueta r;
-	private Bloque b;
+	private List<Bloque> listaBloques;
 	
-	public Pelota(Raqueta r, Bloque b){
+	public Pelota(Raqueta r, List<Bloque> listaBloques){
 		Image img = ImageLoader.loadImage("Images/pelota.png");
 		setImage(img.getScaledInstance(MainWindow.WIDTH/30, MainWindow.WIDTH/30, Image.SCALE_SMOOTH));
 		Point2f pos = r.getPosition();
 		setPosition(pos.x + (r.getWidth()/2 - getWidth()/ 2), pos.y-getHeight());
 		this.r = r;
-		this.b = b;
+		this.listaBloques = listaBloques;
 	}
 
 	@Override
@@ -30,11 +31,13 @@ public class Pelota extends Sprite {
 			speed.y = -1;
 			
 		}
-		
-		if (b.checkCollision(this) && !b.isDead()){
-			speed.y = +1;
-			b.onColision(this);
+		for(Bloque b : listaBloques){
+			if (b.checkCollision(this) && !b.isDead()){
+				speed.y = +1;
+				b.onColision(this);
+			}
 		}
+		
 
 		
 		if (getPosition().x> MainWindow.WIDTH - getWidth()){
