@@ -8,15 +8,15 @@ import es.techtalents.ttgdl.sprite.Sprite;
 
 public class Bloque extends Sprite{
 	
-	Vector2f speed = new Vector2f(0,1);
+	Vector2f speed = new Vector2f(0,(float) 0.5);
 	private int vida = 3;
 	
 	Image img3 = ImageLoader.loadImage("Images/bloque_dorado.png");
 	Image img2 = ImageLoader.loadImage("Images/bloque_morada.png");
 	Image img = ImageLoader.loadImage("Images/bloque_azul.png");
 	
-	public Bloque(){
-
+	public Bloque(int vida){
+		this.vida = vida;
 		setImage(img3);
 	}
 
@@ -34,7 +34,7 @@ public class Bloque extends Sprite{
 		if (arg0 instanceof Pelota){
 			vida--;
 
-			if (vida == 3){
+			if (vida >= 3){
 				setImage(img3);
 			}
 
@@ -45,7 +45,6 @@ public class Bloque extends Sprite{
 				setImage(img);
 			}
 		}
-
 	}
 
 	public boolean isDead() {
