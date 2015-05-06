@@ -12,6 +12,7 @@ import es.techtalents.ttgdl.sprite.Sprite;
 
 public class Pelota extends Sprite {
 
+	private static final boolean DEBUG = true;
 	private Vector2f speed = new Vector2f (1,-1);
 	private Raqueta r;
 	private List<Bloque> listaBloques;
@@ -28,13 +29,12 @@ public class Pelota extends Sprite {
 		this.r = r;
 		this.listaBloques = listaBloques;
 		this.mainWinwindow = w;
-		this.ventanita = ventanita; 
+		this.ventanita = ventanita;
 		nBloques = listaBloques.size();
 	}
 
 	@Override
 	public void act() {
-		// TODO Auto-generated method stub
 
 		if(nBloques <= 0){
 			youWin();
@@ -79,8 +79,11 @@ public class Pelota extends Sprite {
 		}
 
 		if (getPosition().y> MainWindow.HEIGHT - getHeight()){
-			//speed.y = speed.y *-1;
-			gameOver();
+			if(DEBUG){
+				speed.y = speed.y *-1;
+			}else{
+				gameOver();
+			}
 
 		}
 		getPosition().add(speed);
@@ -102,7 +105,6 @@ public class Pelota extends Sprite {
 
 	@Override
 	public void onColision(Sprite arg0) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -114,8 +116,8 @@ public class Pelota extends Sprite {
 		if(speed.x < 0 && speed.x > -0.4){
 			speed.x = -0.4f;
 		}
-		
-		
+
+
 		speed.y *= 0.5f;
 		if(speed.y > 0 && speed.y < 0.4){
 			speed.y = 0.4f;
@@ -123,7 +125,7 @@ public class Pelota extends Sprite {
 		if(speed.y < 0 && speed.y > -0.4){
 			speed.y = -0.4f;
 		}
-		
+
 	}
 
 	public void irRapido() {
@@ -134,8 +136,8 @@ public class Pelota extends Sprite {
 		if(speed.x < -2){
 			speed.x = -2;
 		}
-		
-		
+
+
 		speed.y *= 1.5;
 		if(speed.y > 2){
 			speed.y = 2;

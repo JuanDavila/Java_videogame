@@ -22,7 +22,6 @@ public class Bloque extends Sprite{
 
 	@Override
 	public void act() {
-		// TODO Auto-generated method stub
 		if (isDead()){
 			getPosition().add(speed); 
 		}
@@ -30,7 +29,6 @@ public class Bloque extends Sprite{
 
 	@Override
 	public void onColision(Sprite arg0) {
-		// TODO Auto-generated method stub
 		if (arg0 instanceof Pelota){
 			vida--;
 

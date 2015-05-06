@@ -45,7 +45,7 @@ public class Main {
 				ventanita.addSprite(b);
 			}
 		}
-		Raqueta r = new Raqueta(listaBloque);
+		Raqueta r = new Raqueta(listaBloque, ventanita);
 		
 		r.setVisible(true);
 		ventanita.addSprite(r);
