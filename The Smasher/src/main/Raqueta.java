@@ -15,6 +15,7 @@ public class Raqueta extends Sprite{
 	private boolean moveRight;
 	private float vx = 2;
 	private int tamaño = 7;
+	private int nBalas = 5;
 	private List<Bloque> listaBloques;
 
 	public Raqueta(List<Bloque> listaBloques){
@@ -45,6 +46,10 @@ public class Raqueta extends Sprite{
 
 		if(keyCode == KeyEvent.VK_ESCAPE){
 			System.exit(0);
+		}
+		if(keyCode == KeyEvent.VK_SPACE && nBalas > 0){
+			nBalas--;
+			disparar();
 		}
 	}
 
@@ -133,4 +138,13 @@ public class Raqueta extends Sprite{
 	private void pelotaMasRapida(){
 		Main.pelota.irRapido();
 	}
+	
+	public void setBalas(int nBalas){
+		this.nBalas = nBalas;
+	}
+	
+	private void disparar(){
+		System.out.println("un disparo");
+	}
+	
 }
