@@ -144,10 +144,8 @@ public class Raqueta extends Sprite{
 	}
 
 	private void disparar(){
-		for(int i=0;i<10000; i++){
-			Bala b = new Bala(this, ventanita);
+			Bala b = new Bala(this, ventanita, listaBloques);
 			ventanita.addSprite(b);
-		}
 	}
 
 }

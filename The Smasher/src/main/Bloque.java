@@ -29,7 +29,7 @@ public class Bloque extends Sprite{
 
 	@Override
 	public void onColision(Sprite arg0) {
-		if (arg0 instanceof Pelota){
+		if (arg0 instanceof Pelota || arg0 instanceof Bala){
 			vida--;
 
 			if (vida >= 3){
