@@ -79,8 +79,8 @@ public class Pelota extends Sprite {
 		}
 
 		if (getPosition().y> MainWindow.HEIGHT - getHeight()){
-			speed.y = speed.y *-1;
-			//gameOver();
+			//speed.y = speed.y *-1;
+			gameOver();
 
 		}
 		getPosition().add(speed);

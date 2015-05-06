@@ -14,6 +14,11 @@ public class Main {
 
 	public static void main(String[] args) throws InterruptedException{
 		MainWindow w = new MainWindow();
+		
+		
+		
+		
+		
 
 		Window ventanita = new Window();
 		ventanita.setHeight(MainWindow.HEIGHT);

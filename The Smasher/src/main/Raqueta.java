@@ -105,11 +105,11 @@ public class Raqueta extends Sprite{
 		if(chooser > 0.2 && chooser < 0.3){
 			pelotaMasLenta();
 		}
-		if(chooser > 0.2 && chooser < 0.3){
+		if(chooser > 0.3 && chooser < 0.4){
 			pelotaMasRapida();
 		}
 		if(chooser > 0.3 && chooser < 0.4){
-			pelotaMasLenta();
+			
 		}
 			
 	}
