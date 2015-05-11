@@ -16,9 +16,29 @@ public class MenuPrincipal extends Window {
 		setBackgroundImage(fondo);
 		setWidth(Game.WIDTH);
 		setHeight(Game.HEIGHT);
+		crearBotones();
+	}
+
+
+	private void crearBotones() {
+		Image imgBtExit = ImageLoader.loadImage("img/exitButton.png");
+		Image imgBtExith = ImageLoader.loadImage("img/exitButtonMouseover.png");
+		Boton exitButton = new Boton(imgBtExit, imgBtExith){
+
+			@Override
+			public void clicked() {
+			System.exit(0);	
+			}
+			
+		};
+	
+		addSprite(exitButton);
+		exitButton.setVisible(true);
+		exitButton.setEnabled(true);
 	}
 	
 	
+
 	@Override
 	public void onKeyPress(int keyCode) {
 		// TODO Auto-generated method stub
@@ -28,6 +48,6 @@ public class MenuPrincipal extends Window {
 		}
 	}
 
-	
-	
+
+
 }
