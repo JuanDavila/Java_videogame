@@ -12,7 +12,7 @@ public class MenuPrincipal extends Window {
 
 	public MenuPrincipal(Game game) {
 		this.game = game;
-		Image fondo = ImageLoader.loadImage("img/mainmenu_background.jpg").getScaledInstance(Game.WIDTH, Game.HEIGHT, Image.SCALE_SMOOTH);
+		Image fondo = ImageLoader.loadImage("img/backgraunds/mainmenu_background.jpg").getScaledInstance(Game.WIDTH, Game.HEIGHT, Image.SCALE_SMOOTH);
 		setBackgroundImage(fondo);
 		setWidth(Game.WIDTH);
 		setHeight(Game.HEIGHT);
@@ -25,8 +25,8 @@ public class MenuPrincipal extends Window {
 		int EspacioEntreBotones = 20;
 		
 		//boton facil
-		Image imgBtfacil = ImageLoader.loadImage("img/facilButton.png");
-		Image imgBtfacilh = ImageLoader.loadImage("img/facilButtonMouseover.png");
+		Image imgBtfacil = ImageLoader.loadImage("img/buttons/facilButton.png");
+		Image imgBtfacilh = ImageLoader.loadImage("img/buttons/facilButtonMouseover.png");
 		Boton facilButton = new Boton(imgBtfacil, imgBtfacilh){
 
 			@Override
@@ -45,8 +45,8 @@ public class MenuPrincipal extends Window {
 		facilButton.setEnabled(true);
 
 		//boton normal
-		Image imgBtnormal = ImageLoader.loadImage("img/normalButton.png");
-		Image imgBtnormalh = ImageLoader.loadImage("img/normalButtonMouseover.png");
+		Image imgBtnormal = ImageLoader.loadImage("img/buttons/normalButton.png");
+		Image imgBtnormalh = ImageLoader.loadImage("img/buttons/normalButtonMouseover.png");
 		Boton normalButton = new Boton(imgBtnormal, imgBtnormalh){
 
 			@Override
@@ -64,8 +64,8 @@ public class MenuPrincipal extends Window {
 
 		//boton dificil
 		
-		Image imgBtdificil = ImageLoader.loadImage("img/dificilButton.png");
-		Image imgBtdificilh = ImageLoader.loadImage("img/dificilButtonMouseover.png");
+		Image imgBtdificil = ImageLoader.loadImage("img/buttons/dificilButton.png");
+		Image imgBtdificilh = ImageLoader.loadImage("img/buttons/dificilButtonMouseover.png");
 		Boton dificilButton = new Boton(imgBtdificil, imgBtdificilh){
 
 			@Override
@@ -84,8 +84,8 @@ public class MenuPrincipal extends Window {
 		
 		//boton imposible
 		
-				Image imgBtimposible = ImageLoader.loadImage("img/imposibleButton.png");
-				Image imgBtimposibleh = ImageLoader.loadImage("img/imposibleButtonMouseover.png");
+				Image imgBtimposible = ImageLoader.loadImage("img/buttons/imposibleButton.png");
+				Image imgBtimposibleh = ImageLoader.loadImage("img/buttons/imposibleButtonMouseover.png");
 				Boton imposibleButton = new Boton(imgBtimposible, imgBtimposibleh){
 
 					@Override
@@ -104,8 +104,8 @@ public class MenuPrincipal extends Window {
 		
 				//boton tienda
 				
-				Image imgBttienda = ImageLoader.loadImage("img/tiendaButton.png");
-				Image imgBttiendah = ImageLoader.loadImage("img/tiendaButtonMouseover.png");
+				Image imgBttienda = ImageLoader.loadImage("img/buttons/tiendaButton.png");
+				Image imgBttiendah = ImageLoader.loadImage("img/buttons/tiendaButtonMouseover.png");
 				Boton tiendaButton = new Boton(imgBttienda, imgBttiendah){
 
 					@Override
@@ -123,8 +123,8 @@ public class MenuPrincipal extends Window {
 				tiendaButton.setEnabled(true);
 				
 		//boton exit
-		Image imgBtExit = ImageLoader.loadImage("img/exitButton.png");
-		Image imgBtExith = ImageLoader.loadImage("img/exitButtonMouseover.png");
+		Image imgBtExit = ImageLoader.loadImage("img/buttons/exitButton.png");
+		Image imgBtExith = ImageLoader.loadImage("img/buttons/exitButtonMouseover.png");
 		Boton exitButton = new Boton(imgBtExit, imgBtExith){
 
 			@Override

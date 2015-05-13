@@ -1,6 +1,7 @@
 package main;
 
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 
 import es.techtalents.ttgdl.sprite.Sprite;
 
