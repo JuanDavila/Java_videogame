@@ -23,7 +23,7 @@ public class MenuPrincipal extends Window {
 	private void crearBotones() {
 
 		int EspacioEntreBotones = 20;
-		
+
 		//boton facil
 		Image imgBtfacil = ImageLoader.loadImage("img/buttons/facilButton.png");
 		Image imgBtfacilh = ImageLoader.loadImage("img/buttons/facilButtonMouseover.png");
@@ -31,7 +31,7 @@ public class MenuPrincipal extends Window {
 
 			@Override
 			public void clicked() {
-				System.exit(0);	
+				game.mostrarNivel(0);
 			}
 
 		};
@@ -51,7 +51,7 @@ public class MenuPrincipal extends Window {
 
 			@Override
 			public void clicked() {
-				System.exit(0);	
+				game.mostrarNivel(1);
 			}
 
 		};
@@ -63,65 +63,65 @@ public class MenuPrincipal extends Window {
 		normalButton.setEnabled(true);
 
 		//boton dificil
-		
+
 		Image imgBtdificil = ImageLoader.loadImage("img/buttons/dificilButton.png");
 		Image imgBtdificilh = ImageLoader.loadImage("img/buttons/dificilButtonMouseover.png");
 		Boton dificilButton = new Boton(imgBtdificil, imgBtdificilh){
 
 			@Override
 			public void clicked() {
-				System.exit(0);	
+				game.mostrarNivel(2);;	
 			}
 
 		};
 
 		dificilButton.setPosition(x, y);
 		y+=incrementoY;
-		
+
 		addSprite(dificilButton);
 		dificilButton.setVisible(true);
 		dificilButton.setEnabled(true);
-		
+
 		//boton imposible
-		
-				Image imgBtimposible = ImageLoader.loadImage("img/buttons/imposibleButton.png");
-				Image imgBtimposibleh = ImageLoader.loadImage("img/buttons/imposibleButtonMouseover.png");
-				Boton imposibleButton = new Boton(imgBtimposible, imgBtimposibleh){
 
-					@Override
-					public void clicked() {
-						System.exit(0);	
-					}
+		Image imgBtimposible = ImageLoader.loadImage("img/buttons/imposibleButton.png");
+		Image imgBtimposibleh = ImageLoader.loadImage("img/buttons/imposibleButtonMouseover.png");
+		Boton imposibleButton = new Boton(imgBtimposible, imgBtimposibleh){
 
-				};
+			@Override
+			public void clicked() {
+				game.mostrarNivel(3);;	
+			}
 
-				imposibleButton.setPosition(x, y);
-				y+=incrementoY;
-				
-				addSprite(imposibleButton);
-				imposibleButton.setVisible(true);
-				imposibleButton.setEnabled(true);
-		
-				//boton tienda
-				
-				Image imgBttienda = ImageLoader.loadImage("img/buttons/tiendaButton.png");
-				Image imgBttiendah = ImageLoader.loadImage("img/buttons/tiendaButtonMouseover.png");
-				Boton tiendaButton = new Boton(imgBttienda, imgBttiendah){
+		};
 
-					@Override
-					public void clicked() {
-						System.exit(0);	
-					}
+		imposibleButton.setPosition(x, y);
+		y+=incrementoY;
 
-				};
+		addSprite(imposibleButton);
+		imposibleButton.setVisible(true);
+		imposibleButton.setEnabled(true);
 
-				tiendaButton.setPosition(x, y);
-				y+=incrementoY;
-				
-				addSprite(tiendaButton);
-				tiendaButton.setVisible(true);
-				tiendaButton.setEnabled(true);
-				
+		//boton tienda
+
+		Image imgBttienda = ImageLoader.loadImage("img/buttons/tiendaButton.png");
+		Image imgBttiendah = ImageLoader.loadImage("img/buttons/tiendaButtonMouseover.png");
+		Boton tiendaButton = new Boton(imgBttienda, imgBttiendah){
+
+			@Override
+			public void clicked() {
+				game.MostrarTienda();
+			}
+
+		};
+
+		tiendaButton.setPosition(x, y);
+		y+=incrementoY;
+
+		addSprite(tiendaButton);
+		tiendaButton.setVisible(true);
+		tiendaButton.setEnabled(true);
+
 		//boton exit
 		Image imgBtExit = ImageLoader.loadImage("img/buttons/exitButton.png");
 		Image imgBtExith = ImageLoader.loadImage("img/buttons/exitButtonMouseover.png");
@@ -133,9 +133,9 @@ public class MenuPrincipal extends Window {
 			}
 
 		};
-		
+
 		exitButton.setPosition(x, y);
-		
+
 		addSprite(exitButton);
 		exitButton.setVisible(true);
 		exitButton.setEnabled(true);
