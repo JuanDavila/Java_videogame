@@ -9,7 +9,8 @@ import es.techtalents.ttgdl.image.ImageLoader;
 public class VentanaDeJuego extends Window{
 
 	private Game game;
-
+	private Nave naveAliada;
+	
 	public VentanaDeJuego(Game game, int dificultad) {
 		this.game = game;
 		Image img = null;
@@ -25,9 +26,15 @@ public class VentanaDeJuego extends Window{
 		if (dificultad == 3){
 			img = ImageLoader.loadImage("img/backgraunds/background_imposible.jpg").getScaledInstance(Game.WIDTH, Game.HEIGHT, Image.SCALE_SMOOTH);
 		}
+		
+		
+		naveAliada = new Nave(this);
+		addSprite(naveAliada);
+		
 		setBackgroundImage(img);
 		setWidth(Game.WIDTH);
 		setHeight(Game.HEIGHT);
+		
 	}
 
 	@Override
