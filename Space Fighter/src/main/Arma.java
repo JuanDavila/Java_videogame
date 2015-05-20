@@ -16,8 +16,8 @@ public abstract class Arma {
 		return tiempoTranscurrido > tiempoDeRecarga;
 	}
 	
-	public void setTiempoDeRecarga() {
-		
+	public void setTiempoDeRecarga(int tRecarga) {
+		tiempoDeRecarga = tRecarga;
 	}
 
 }
