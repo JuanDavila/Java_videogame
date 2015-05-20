@@ -18,8 +18,12 @@ public class Nave extends Sprite{
 	private float vx = 750;
 	private float vy = 750;
 	private long tiempoAnterior;
+	private Arma arma;
+	private boolean shooting;
 	
 	public Nave (VentanaDeJuego ventanaDeJuego){
+		arma=  new ArmaLaser(this, ventanaDeJuego);
+		arma.setTiempoDeRecarga(250);
 		this.ventanaDeJuego = ventanaDeJuego;
 		Image img = ImageLoader.loadImage("img/naves + meteoritos/nave.png");
 		img = img.getScaledInstance(Game.WIDTH/10, Game.HEIGHT/10, Image.SCALE_SMOOTH);
@@ -51,14 +55,15 @@ public class Nave extends Sprite{
 
 		}
 		if (keyCode == KeyEvent.VK_SPACE){
-			shoot();
+			shooting = true;
 
 		}
 	}
 	
 	private void shoot() {
-		// TODO Auto-generated method stub
-		
+		if(arma.canShoot()){
+			arma.shoot();
+		}
 	}
 
 	@Override
@@ -81,11 +86,17 @@ public class Nave extends Sprite{
 			moveDown = false;
 
 		}
+		if (keyCode == KeyEvent.VK_SPACE){
+			shooting = false;
+
+		}
 	}
 
 	@Override
 	public void act() {
-		
+		if(shooting){
+			shoot();
+		}
 		long tiempoActual = System.currentTimeMillis();
 		long tiempoTranscurrido = tiempoActual - tiempoAnterior;
 		tiempoAnterior = tiempoActual;

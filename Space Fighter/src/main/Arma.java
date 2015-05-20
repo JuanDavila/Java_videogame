@@ -11,13 +11,17 @@ public abstract class Arma {
 		long tiempoActual = System.currentTimeMillis();
 
 		long tiempoTranscurrido = tiempoActual - tiempoAnterior;
-		tiempoAnterior = tiempoActual;
+		if(tiempoTranscurrido > tiempoDeRecarga){
+			tiempoAnterior = tiempoActual;
+		}
 
 		return tiempoTranscurrido > tiempoDeRecarga;
 	}
-	
+
 	public void setTiempoDeRecarga(int tRecarga) {
 		tiempoDeRecarga = tRecarga;
 	}
+
+
 
 }
