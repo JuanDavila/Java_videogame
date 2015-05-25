@@ -1,13 +1,13 @@
 package main;
 
 import es.techtalents.ttgdl.gui.window.Window;
-import es.techtalents.ttgdl.sound.Sound;
+//import es.techtalents.ttgdl.sound.Sound;
 
 public class ArmaLaser extends Arma{
 
 	private Window ventanaDeJuego;
 	private Nave nave;
-	private Sound sound = new Sound("sound/laser1.wav", 30);
+	//private static final Sound sound = new Sound("sound/laser1.wav", 30);
 	
 	public ArmaLaser(Nave nave, VentanaDeJuego ventanaDeJuego) {
 		this.ventanaDeJuego = ventanaDeJuego;
@@ -16,7 +16,7 @@ public class ArmaLaser extends Arma{
 
 	@Override
 	public void shoot() {
-		sound.start();
+		//sound.start();
 		Laser l = new Laser(nave, ventanaDeJuego); //,listaEnemigos);
 		ventanaDeJuego.addSprite(l);
 	}

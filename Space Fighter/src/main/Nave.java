@@ -104,7 +104,7 @@ public class Nave extends Sprite{
 		float tiempoEnSec = tiempoTranscurrido/1000.0f; 
 
 		
-		if (moveLeft == true && getPosition().x >0){
+		if (moveLeft == true && getPosition().x > 0){
 			Point2f pos = super.getPosition();
 			pos.add(-vx*tiempoEnSec, 0);
 		}

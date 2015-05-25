@@ -8,8 +8,13 @@ import es.techtalents.ttgdl.image.ImageLoader;
 
 public class VentanaDeJuego extends Window{
 
+	private long tiempoAnterior;
+
+
+
 	private Game game;
 	private Nave naveAliada;
+	private int intervaloEnemigos = 1500;
 	
 	public VentanaDeJuego(Game game, int dificultad) {
 		this.game = game;
@@ -45,6 +50,27 @@ public class VentanaDeJuego extends Window{
 		super.onKeyPress(keyCode);
 	}
 
+	@Override
+	protected void act() {
+		super.act();
+		long tiempoActual = System.currentTimeMillis();
+		long tiempoTranscurrido = tiempoActual - tiempoAnterior;
+			if (tiempoAnterior == 0){
+				tiempoAnterior = tiempoActual;
+				return;
+			}
+			
+			if(tiempoTranscurrido > intervaloEnemigos){
+				Enemigo e = new Enemigo1(this);
+				addSprite(e);
+				
+				float y = (float) Math.random(); 
+				e.setPosition(Game.WIDTH, y * (Game.HEIGHT - e.getHeight()));
+				
+				tiempoAnterior = tiempoActual;
+			}
+			
+	}
 
 
 }

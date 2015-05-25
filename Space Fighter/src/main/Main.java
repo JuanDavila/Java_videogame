@@ -1,6 +1,6 @@
 package main;
 
-import es.techtalents.ttgdl.sound.Sound;
+//import es.techtalents.ttgdl.sound.Sound;
 
 public class Main {
 
@@ -9,8 +9,8 @@ public class Main {
 		new Game();
 		
 		
-		Sound s = new Sound("sound/Ready_Aim_Fire.wav", 1);
-		s.start();
+		//Sound s = new Sound("sound/Ready_Aim_Fire.wav", 1);
+		//s.start();
 				
 	}
 

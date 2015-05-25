@@ -41,7 +41,7 @@ public class Laser extends Sprite{
 		getPosition().add(speed.mul(tiempoEnSec));
 		
 		if(this.getPosition().x > Game.WIDTH){
-			//ventanaDeJuego.removeSprite(this);
+			ventanaDeJuego.removeSprite(this);
 		}
 	}
 
