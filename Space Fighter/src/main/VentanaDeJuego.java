@@ -18,22 +18,28 @@ public class VentanaDeJuego extends Window{
 
 	private Game game;
 	private Nave naveAliada;
-	private int intervaloEnemigos = 1000 ;
+	private int intervaloEnemigos = 1000;
+	private int limiteDeEnemigos = 0;
+	private int enemigosCreados = 0;
 
 	public VentanaDeJuego(Game game, int dificultad) {
 		this.game = game;
 		Image img = null;
 		if (dificultad == 0){
 			img = ImageLoader.loadImage("img/backgraunds/background_facil.jpg").getScaledInstance(Game.WIDTH, Game.HEIGHT, Image.SCALE_SMOOTH);
+			limiteDeEnemigos = 25;
 		}
 		if (dificultad == 1){
 			img = ImageLoader.loadImage("img/backgraunds/background_medio.jpg").getScaledInstance(Game.WIDTH, Game.HEIGHT, Image.SCALE_SMOOTH);
+			limiteDeEnemigos = 50;
 		}
 		if (dificultad == 2){
 			img = ImageLoader.loadImage("img/backgraunds/background_dificil.jpg").getScaledInstance(Game.WIDTH, Game.HEIGHT, Image.SCALE_SMOOTH);
+			limiteDeEnemigos = 100;
 		}
 		if (dificultad == 3){
 			img = ImageLoader.loadImage("img/backgraunds/background_imposible.jpg").getScaledInstance(Game.WIDTH, Game.HEIGHT, Image.SCALE_SMOOTH);
+			limiteDeEnemigos = 2147483647;
 		}
 
 
@@ -43,7 +49,9 @@ public class VentanaDeJuego extends Window{
 		setBackgroundImage(img);
 		setWidth(Game.WIDTH);
 		setHeight(Game.HEIGHT);
-
+		
+		intervaloEnemigos = 1000 - dificultad*250;
+		
 	}
 
 	@Override
@@ -68,9 +76,10 @@ public class VentanaDeJuego extends Window{
 			return;
 		}
 
-		if(tiempoTranscurrido > intervaloEnemigos){
+		if(tiempoTranscurrido > intervaloEnemigos && enemigosCreados < limiteDeEnemigos){
 			Enemigo e = new Enemigo1(this);
 			addSprite(e);
+			enemigosCreados ++ ;
 
 			float y = (float) Math.random(); 
 			e.setPosition(Game.WIDTH, y * (Game.HEIGHT - e.getHeight()));
