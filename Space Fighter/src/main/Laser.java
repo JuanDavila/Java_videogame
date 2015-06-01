@@ -2,6 +2,7 @@ package main;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.util.List;
 
 import es.techtalents.ttgdl.geom.Point2f;
 import es.techtalents.ttgdl.geom.Vector2f;
@@ -27,7 +28,7 @@ public class Laser extends Sprite{
 
 	@Override
 	public void act() {
-		
+		checkCollisions();
 		long tiempoActual = System.currentTimeMillis();
 		long tiempoTranscurrido = tiempoActual - tiempoAnterior;
 		if(tiempoAnterior == 0){
@@ -35,19 +36,31 @@ public class Laser extends Sprite{
 			return;
 		}
 		tiempoAnterior = tiempoActual;
-		
+
 		float tiempoEnSec = tiempoTranscurrido/1000.0f; 
 		speed.x = 1500;
 		getPosition().add(speed.mul(tiempoEnSec));
-		
+
 		if(this.getPosition().x > Game.WIDTH){
 			ventanaDeJuego.removeSprite(this);
 		}
 	}
 
+	private void checkCollisions() {
+		List<Enemigo> enemigos = ((VentanaDeJuego) ventanaDeJuego).getEnemigos();
+		for(int i = enemigos.size()-1; i >= 0; i--){
+			Enemigo enemigo = enemigos.get(i);
+			if(enemigo.checkCollision(this)){
+				enemigo.onColision(this);
+				ventanaDeJuego.removeSprite(this);
+				return;
+			}
+		}
+	}
+
 	@Override
 	public void draw(Graphics2D g) {
-		// TODO Auto-generated method stub
+
 		super.draw(g);
 	}
 
